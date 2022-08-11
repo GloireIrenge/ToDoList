@@ -4,42 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Hari Ram" />
-    <title>TODO list</title>
-    <meta
-      name="description"
-      content="This is a front-end coding challenge - TODO APP"
-    />
-  </head>
-  <body>
-    <header class="card">
-      <h1>Today's To Do</h1>
-      <span class="refresh"><i class="fas fa-arrows-rotate"></i></span>
-    </header>
-    <main>
-      <div class="card add">
-        <div class="txt-container">
-          <label for="addt">Create todo</label>
-          <input
-            type="text"
-            class="txt-input"
-            placeholder="Add to your list ..."
-            spellcheck="false"
-            autocomplete="off"
-            id="addt"
-          />
+    <title>TODO list</title></head>
+  <body class="flex-column">
+    <section class="all  main-container">
+      <div class="container">
+        <div class="container-header">
+          <h3 class="container-heading">Today's To Do</h3>
         </div>
-        <div class="cb-container">
-          <button id="add-btn">+</button>
+        <div class="input">
+          <input type="text" placeholder="Add to your list..."  id="new-task" class="new-input" />
+          <svg width="16px" height="16px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="icon">
+            <path d="M864 170h-60c-4.4 0-8 3.6-8 8v518H310v-73c0-6.7-7.8-10.5-13-6.3l-141.9 112a8 8 0 0 0 0 12.6l141.9 112c5.3 4.2 13 .4 13-6.3v-75h498c35.3 0 64-28.7 64-64V178c0-4.4-3.6-8-8-8z" />
+          </svg>
         </div>
+        <ul class="TodoList"></ul>
+        <button type="button" class="btn btn-clear">
+          Clear all completed
+        </button>
       </div>
-      <ul class="todos"></ul>
-      <div class="card stat">
-        <div class="corner">
-          <button id="clear-completed">Clear Completed</button>
-        </div>
-      </div>
-    </main>
-    <footer></footer>
+    </section>
   </body>
 </html>
