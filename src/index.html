@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Hari Ram" />
+    <title>TODO list</title>
+    <meta
+      name="description"
+      content="This is a front-end coding challenge - TODO APP"
+    />
+  </head>
+  <body>
+    <header class="card">
+      <h1>Today's To Do</h1>
+      <span class="refresh"><i class="fas fa-arrows-rotate"></i></span>
+    </header>
+    <main>
+      <div class="card add">
+        <div class="txt-container">
+          <label for="addt">Create todo</label>
+          <input
+            type="text"
+            class="txt-input"
+            placeholder="Add to your list ..."
+            spellcheck="false"
+            autocomplete="off"
+            id="addt"
+          />
+        </div>
+        <div class="cb-container">
+          <button id="add-btn">+</button>
+        </div>
+      </div>
+      <ul class="todos"></ul>
+      <div class="card stat">
+        <div class="corner">
+          <button id="clear-completed">Clear Completed</button>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
