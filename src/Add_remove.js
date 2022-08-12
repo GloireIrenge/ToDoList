@@ -18,9 +18,16 @@ class Todo {
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 
+  updateIndex = (arr) => {
+    arr.forEach((elmt, index) => {
+      elmt.id = index + 1;
+    });
+  };
+
   deleteTodo = (e, todos) => {
     e.target.parentElement.remove();
     todos.splice(e.target.parentElement.id, 1);
+    updateIndex(todos);
     localStorage.setItem('todos', JSON.stringify(todos));
   }
 }
