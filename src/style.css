@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;500;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .nav-top {
   background-color: black;
   height: 900px;
@@ -38,6 +32,7 @@ body {
 
 .main-container .container {
   width: 100%;
+  padding: 10px;
 }
 
 .main-container .container .container-header {
@@ -88,6 +83,10 @@ body {
   align-items: center;
 }
 
+input:disabled {
+  border: none;
+}
+
 .main-container .container .TodoList .todo .TodoDesc {
   display: flex;
   align-items: center;
@@ -108,4 +107,20 @@ body {
   font-size: 1.2em;
   border: none;
   padding: 0.5em;
+}
+
+li {
+  list-style: none;
+}
+
+.fa-solid,
+.fas {
+  font-weight: 900;
+  float: right;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
