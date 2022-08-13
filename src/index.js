@@ -106,15 +106,3 @@ MyTodoList.addEventListener('click', (e) => {
 
 todos = TodoLoad();
 showTodo(todos);
-
-const DeleteSelected = document.getElementById('clearButton');
-DeleteSelected.addEventListener('click', () => {
-  todos = clearAllCompleted(todos);
-  localStorage.setItem('todos', JSON.stringify(todos));
-  showTodo(todos);
-});
-
-document.getElementById('reload').addEventListener('click', () => {
-  document.getElementById('reload').style.transform = 'rotate(750deg)';
-  document.location.reload();
-});
