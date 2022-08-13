@@ -12,7 +12,7 @@
       <div class="box-body container">
         <div class="container-header">
           <h3 class="container-heading">Today's To Do</h3>
-          <i class="fa-solid fa-rotate"></i>
+          <i class="fa-solid fa-rotate" id="reload"></i>
         </div>
         <div class="my-input-group input">
           <input type="text" placeholder="Add to your list..." id="new-task" class="new-input"/>
@@ -23,8 +23,8 @@
             </svg>
           </button>
         </div>
-        <ul class="tasks-list"></ul>
-        <button type="button" class="btn btn-clear" id="btnClear">
+        <ul id="TodoList"></ul>
+        <button type="button" class="btn btn-clear" id="clearButton">
           Clear all completed
         </button>
       </div>
