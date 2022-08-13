@@ -7,4 +7,3 @@ const IsChecked = (todos, s, i) => {
     }
     localStorage.setItem('todos', JSON.stringify(todos));
   };
-export { IsChecked, clearAllCompleted };
