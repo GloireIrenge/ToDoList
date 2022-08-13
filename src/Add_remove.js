@@ -16,6 +16,7 @@ class Todo {
   addTodo = (task, todos) => {
     todos.push(task);
     localStorage.setItem('todos', JSON.stringify(todos));
+    this.addTodo.id = todos;
   }
 
   updateIndex = (arr) => {
