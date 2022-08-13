@@ -1,28 +1,15 @@
 import './style.css';
 import { Todo, TodoLoad } from './Add_remove.js';
+import { IsChecked, clearAllCompleted } from './completed.js';
 
 let todos = [];
 
-const MyTodoList = document.querySelector('.tasks-list');
-
-const showTodo = (todos) => {
-  MyTodoList.innerHTML = '';
-  for (let i = 0; i < todos.length; i += 1) {
-    MyTodoList.innerHTML += `<li class="task" id=${i} data-id="${todos[i].index}">
-    <div class="task-desc">
-      <input type="checkbox" name="task" class="toggle-check" />
-      <input class="task-edit" value="${todos[i].description}" disabled autofocus/>
-    </div>
-    <i class="fa-solid fa-ellipsis-vertical "></i>
-    <i class="fa-solid fa-trash-can hidden"></i>
-  </li>`;
-  }
-};
+const MyTodoList = document.getElementById('TodoList');
 
 MyTodoList.addEventListener('click', (e) => {
   const task = new Todo();
   if (e.target.nodeName === 'INPUT') {
-    e.target.parentElement.parentElement.style.backgroundColor = '#ffffa7';
+    e.target.parentElement.parentElement.style.backgroundColor = '#f6e4672e';
     e.target.parentElement.parentElement.children[1].style.display = 'none';
     e.target.parentElement.parentElement.children[2].style.display = 'inline';
     setTimeout(() => {
@@ -35,6 +22,30 @@ MyTodoList.addEventListener('click', (e) => {
     task.deleteTodo(e, todos);
   }
 });
+const showTodo = (todos) => {
+  MyTodoList.innerHTML = '';
+  for (let i = 0; i < todos.length; i += 1) {
+    if (todos[i].isComplete) {
+      MyTodoList.innerHTML += `<li class="todo_item" data-id="${todos[i].index}" id=${i} >
+    <div class="description">
+      <input type="checkbox" name="todo" class="toggle-check" checked />
+      <input value="${todos[i].description}" disabled/>
+    </div>
+    <i class="fa-solid fa-ellipsis-vertical "></i>
+    <i class="fa-solid fa-trash-can hidden"></i>
+  </li>`;
+    } else {
+      MyTodoList.innerHTML += `<li class="todo_item" data-id="${todos[i].index}" id=${i} >
+        <div class="description">
+          <input type="checkbox" name="todo" class="toggle-check" />
+          <input value="${todos[i].description}" disabled/>
+        </div>
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+        <i class="fa-solid fa-trash-can hidden"></i>
+      </li>`;
+    }
+  }
+};
 
 const initAll = (input) => {
   input.value = '';
@@ -81,5 +92,29 @@ MyTodoList.addEventListener('click', (e) => {
   }
 });
 
+MyTodoList.addEventListener('click', (e) => {
+  if (e.target.nodeName === 'INPUT' && e.target.type === 'checkbox') {
+    if (e.target.checked) {
+      e.target.parentElement.children[1].style.textDecoration = 'line-through';
+    } else {
+      e.target.parentElement.children[1].style.textDecoration = 'none';
+    }
+    const i = e.target.parentElement.parentElement.id;
+    IsChecked(todos, e.target, i);
+  }
+});
+
 todos = TodoLoad();
 showTodo(todos);
+
+const DeleteSelected = document.getElementById('clearButton');
+DeleteSelected.addEventListener('click', () => {
+  todos = clearAllCompleted(todos);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  showTodo(todos);
+});
+
+document.getElementById('reload').addEventListener('click', () => {
+  document.getElementById('reload').style.transform = 'rotate(75deg)';
+  document.location.reload();
+});
