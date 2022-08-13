@@ -114,3 +114,7 @@ DeleteSelected.addEventListener('click', () => {
   showTodo(todos);
 });
 
+document.getElementById('reload').addEventListener('click', () => {
+  document.getElementById('reload').style.transform = 'rotate(75deg)';
+  document.location.reload();
+});
