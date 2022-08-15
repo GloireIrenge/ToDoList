@@ -115,6 +115,6 @@ DeleteSelected.addEventListener('click', () => {
 });
 
 document.getElementById('reload').addEventListener('click', () => {
-  document.getElementById('reload').style.transform = 'rotate(750deg)';
+  document.getElementById('reload').style.transform = 'rotate(75deg)';
   document.location.reload();
 });
